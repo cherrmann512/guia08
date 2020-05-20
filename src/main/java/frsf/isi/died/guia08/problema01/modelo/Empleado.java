@@ -25,10 +25,21 @@ public class Empleado {
 	
 	private Function<Tarea, Double> calculoPagoPorTarea;		
 	private Predicate<Tarea> puedeAsignarTarea;
+	
+	
 
-	
-	
-	
+	public Empleado(Integer cuil, String nombre, Double costoHora) {
+		super();
+		this.cuil = cuil;
+		this.nombre = nombre;
+		this.costoHora = costoHora;
+	}
+	public void setTipo(Tipo tipo) {
+		this.tipo = tipo;
+	}
+	public Integer getCuil() {
+		return cuil;
+	}
 
 	public void setCalculoPagoPorTarea(Function<Tarea, Double> calculoPagoPorTarea) {
 		this.calculoPagoPorTarea = calculoPagoPorTarea;
@@ -146,7 +157,7 @@ public class Empleado {
 		LocalDateTime fechaComienzo = LocalDateTime.parse(fecha, formatter);
 		Optional<Tarea> tareaOpt = this.tareasAsignadas.stream()
 														.filter(t->t.getId() == idTarea)
-														.findAny();
+														.findFirst();
 		if(tareaOpt.isEmpty()) {
 			throw new TareaIncorrectaException("Tarea no encontrada");
 		}
@@ -165,7 +176,7 @@ public class Empleado {
 		
 		Optional<Tarea> tareaOpt = this.tareasAsignadas.stream()
 														.filter(t->t.getId() == idTarea)
-														.findAny();
+														.findFirst();
 		if(tareaOpt.isEmpty()) {
 			throw new TareaIncorrectaException("Tarea no encontrada");
 		}

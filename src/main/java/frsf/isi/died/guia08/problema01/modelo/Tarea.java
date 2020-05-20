@@ -22,6 +22,16 @@ public class Tarea {
 		this.empleadoAsignado=e;
 	}
 
+	public Tarea(Integer id, String descripcion, Integer duracionEstimada, Empleado empleadoAsignado) {
+		super();
+		this.id = id;
+		this.descripcion = descripcion;
+		this.duracionEstimada = duracionEstimada;
+		this.empleadoAsignado = empleadoAsignado;
+	}
+
+
+
 	public Integer getId() {
 		return id;
 	}
