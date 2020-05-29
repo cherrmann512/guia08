@@ -31,6 +31,9 @@ public class Tarea {
 	}
 
 
+	public Tarea() {
+		super();
+	}
 
 	public Integer getId() {
 		return id;
@@ -83,6 +86,16 @@ public class Tarea {
 	public Empleado getEmpleadoAsignado() {
 		return empleadoAsignado;
 	}
+	public void setEmpleadoAsignado(Empleado empleadoAsignado) {
+		this.empleadoAsignado = empleadoAsignado;
+	}
+	
+	public String asCSV() {
+		return this.id+"\";"+this.descripcion+"\";"+this.duracionEstimada+"\";"
+				+this.fechaInicio+"\";"+this.fechaFin+"\";"+this.facturada+"\";"
+				+this.empleadoAsignado.getCuil()+"\";"+this.empleadoAsignado.getNombre()+"\";";
+	}
+	
 	
 	
 }

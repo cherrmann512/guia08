@@ -34,6 +34,18 @@ public class Empleado {
 		this.nombre = nombre;
 		this.costoHora = costoHora;
 	}
+	public Empleado() {
+		super(); 
+	}
+	public void setCuil(Integer cuil) {
+		this.cuil = cuil;
+	}
+	
+	public String getNombre() {
+		return nombre;
+	}
+	
+	
 	public void setTipo(Tipo tipo) {
 		this.tipo = tipo;
 	}
@@ -47,6 +59,10 @@ public class Empleado {
 
 	public void setPuedeAsignarTarea(Predicate<Tarea> puedeAsignarTarea) {
 		this.puedeAsignarTarea = puedeAsignarTarea;
+	}
+	
+	public List<Tarea> getTareasAsignadas() {
+		return tareasAsignadas;
 	}
 
 	public Double salario() {
@@ -183,5 +199,9 @@ public class Empleado {
 		else {
 			tareaOpt.get().setFechaFin(fechaFinalizacion);
 		}
+	}
+	
+	public String asCSV() {
+		return this.cuil +"\";"+this.nombre+"\";" +this.costoHora;
 	}
 }
